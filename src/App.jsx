@@ -75,7 +75,7 @@ export default function App() {
           placeholder="Nombre del vino"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{ width: "100%", padding: 10, marginBottom: 8 }}
+          style={{ width: "90%", padding: 10, marginBottom: 8 }}
         />
 
         <div style={{ textAlign: "center", marginBottom: 8 }}>
@@ -98,7 +98,7 @@ export default function App() {
           placeholder="¿Qué te gustó o no te gustó?"
           value={review}
           onChange={(e) => setReview(e.target.value)}
-          style={{ width: "100%", padding: 10, marginBottom: 8 }}
+          style={{ width: "90%", padding: 10, marginBottom: 8 }}
         />
 
         <input type="file" accept="image/*" capture="environment" onChange={handlePhoto} />
@@ -119,13 +119,13 @@ export default function App() {
       {wines.map((w, i) => (
         <div key={i} style={{ background: "#fff", padding: 12, borderRadius: 12, marginBottom: 12 }}>
           {w.photo && <img src={w.photo} style={{ width: "100%", borderRadius: 8 }} />}
-          <h3>{w.name}</h3>
+          <h3 style={{ color: "#000" }}>{w.name}</h3>
           <div>
             {[...Array(w.rating)].map((_, x) => (
               <span key={x} style={{ color: "gold" }}>★</span>
             ))}
           </div>
-          <p>{w.review}</p>
+          <p style={{ fontSize: 14, color: "#555", marginTop: 4, whiteSpace: "pre-wrap"}}>{w.review}</p>
           <button onClick={() => editWine(i)}>Editar</button>
           <button onClick={() => deleteWine(i)} style={{ marginLeft: 8 }}>Borrar</button>
         </div>
